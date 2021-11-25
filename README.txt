@@ -125,3 +125,13 @@ corespunzatoare.
 	o Search 
 	Parcurg filmele si serialele, daca contin genul din input le pun in HashMap 
 	impreuna cu ratingul. Le sortez si afisez.
+Probleme intampinate:
+	Cerintele au fost putin dificile, nu neaparat rezolvarea, dar mie personal
+        mi-a luat putin mai mult sa imi dau seama exact ce trebuie sa fac si 
+        unde sa scriu cod.
+	Au fost cateva teste care nu afisau nimic si nu prea iti dadeai seama daca ce
+        ai scris e corect sau nu ca primeai puncte pe ele. La un task mi-am dat seama ca
+        il fac gresit la testul 9 ca era singurul care nu trecea si a fost putin 
+        incomod sa compar tot outputul cu ce era in ref.
+	La sortarea HashMap-ului a fost putin dificil pentru ca cea mai usoara metoda
+         era cu stream-uri care se fac prin ultimele laboratoare.
