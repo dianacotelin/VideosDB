@@ -88,25 +88,20 @@ public final class Main {
         List<Serial> serials = input.getSerials();
 
         for (Action action : actions) {
+            JSONObject obj = new JSONObject();
             if (action.getActionType().equals("command")) {
                 Command command = new Command(users, movies, serials, action);
                 if (action.getType().equals("favorite")) {
                     String message = command.favorites();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("view")) {
                     String message = command.view();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("rating")) {
                     String message = command.rating();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
             }
             Database database = new Database(actors, users, movies, serials, action);
@@ -114,89 +109,65 @@ public final class Main {
                 if (action.getObjectType().equals("actors")) {
                     if (action.getCriteria().equals("average")) {
                         String message = database.averageActor();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                     if (action.getCriteria().equals("awards")) {
                         String message = database.awardActor();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                     if (action.getCriteria().equals("filter_description")) {
                         String message = database.filterActor();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
                 if (action.getCriteria().equals("ratings")) {
                     if (action.getObjectType().equals("movies")) {
                         String message = database.videoRating();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
 
                     if (action.getObjectType().equals("shows")) {
                         String message = database.videoRating();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
                 if (action.getCriteria().equals("favorite")) {
                     if (action.getObjectType().equals("movies")) {
                         String message = database.videosFavorite();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
 
                     if (action.getObjectType().equals("shows")) {
                         String message = database.videosFavorite();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
                 if (action.getCriteria().equals("longest")) {
                     if (action.getObjectType().equals("movies")) {
                         String message = database.videosLongest();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
 
                     if (action.getObjectType().equals("shows")) {
                         String message = database.videosLongest();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
                 if (action.getCriteria().equals("most_viewed")) {
                     if (action.getObjectType().equals("movies")) {
                         String message = database.videosMostV();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
 
                     if (action.getObjectType().equals("shows")) {
                         String message = database.videosMostV();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
                 if (action.getObjectType().equals("users")) {
                     if (action.getCriteria().equals("num_ratings")) {
                         String message = database.userRatings();
-                        JSONObject obj = new JSONObject();
                         obj = fileWriter.writeFile(action.getActionId(), "", message);
-                        arrayResult.add(obj);
                     }
                 }
 
@@ -204,37 +175,27 @@ public final class Main {
             if (action.getActionType().equals("recommendation")) {
                 if (action.getType().equals("standard")) {
                     String message = database.recStandard();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("best_unseen")) {
                     String message = database.recBest();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("popular")) {
                     String message = database.recPop();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("favorite")) {
                     String message = database.recFav();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
                 if (action.getType().equals("search")) {
                     String message = database.recSe();
-                    JSONObject obj = new JSONObject();
                     obj = fileWriter.writeFile(action.getActionId(), "", message);
-                    arrayResult.add(obj);
                 }
 
             }
-
+            arrayResult.add(obj);
         }
         fileWriter.closeJSON(arrayResult);
     }
