@@ -60,7 +60,7 @@ public final class Serial extends ShowInput {
         return noViews;
     }
 
-    public void setNoViews(int noViews) {
+    public void setNoViews(final int noViews) {
         this.noViews = noViews;
     }
 }

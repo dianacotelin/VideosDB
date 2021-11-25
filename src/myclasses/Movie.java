@@ -54,14 +54,14 @@ public final class Movie extends ShowInput {
         avgRating = avgRating / rating.size();
         return avgRating;
     }
-    public void setRating(List<Double> ratings) {
+    public void setRating(final List<Double> ratings) {
         this.rating = ratings;
     }
     public int getNoViews() {
         return noViews;
     }
 
-    public void setNoViews(int noViews) {
+    public void setNoViews(final int noViews) {
         this.noViews = noViews;
     }
 }

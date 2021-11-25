@@ -20,11 +20,11 @@ public class Database {
     private  List<User> users = new ArrayList<>();
     private  List<Movie> movies = new ArrayList<>();
     private  List<Serial> serials = new ArrayList<>();
-    private Action action;
+    private final Action action;
 
 
-    public Database(List<Actor> actors, List<User> users,
-                     List<Movie> movies, List<Serial> serials, Action action) {
+    public Database(final List<Actor> actors, final List<User> users,
+                     final List<Movie> movies, final List<Serial> serials, final Action action) {
         this.actors = actors;
         this.serials = serials;
         this.movies = movies;
@@ -98,14 +98,15 @@ public class Database {
      * Sorting Hashmap
      * @param hm - hashmap to sort
      */
-    public HashMap<String, Double> sortByValue1(HashMap<String, Double> hm) {
+    public HashMap<String, Double> sortByValue1(final HashMap<String, Double> hm) {
         // Create a list for elements of HashMap
         List<Map.Entry<String, Double>> list =
                 new LinkedList<Map.Entry<String, Double>>(hm.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
             @Override
-            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+            public int compare(final Map.Entry<String, Double> o1,
+                               final Map.Entry<String, Double> o2) {
                 if (o1.getValue().compareTo(o2.getValue()) == 0) {
                     return o1.getKey().compareTo(o2.getKey());
                 } else {
@@ -125,14 +126,15 @@ public class Database {
      * Sorting Hashmap
      * @param hm - hashmap to sort
      */
-    public HashMap<String, Double> sortByValue2(HashMap<String, Double> hm) {
+    public HashMap<String, Double> sortByValue2(final HashMap<String, Double> hm) {
         // Create a list for elements of HashMap
         List<Map.Entry<String, Double>> list =
                 new LinkedList<Map.Entry<String, Double>>(hm.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
             @Override
-            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+            public int compare(final Map.Entry<String, Double> o1,
+                               final Map.Entry<String, Double> o2) {
                 if (o1.getValue().compareTo(o2.getValue()) == 0) {
                     return o2.getKey().compareTo(o1.getKey());
                 } else {
@@ -699,13 +701,14 @@ public class Database {
      * Sorting Hashmap
      * @param hm - hashmap to sort
      */
-    public HashMap<String, Double> sortByValue3(HashMap<String, Double> hm) {
+    public HashMap<String, Double> sortByValue3(final HashMap<String, Double> hm) {
         List<Map.Entry<String, Double>> list =
                 new LinkedList<Map.Entry<String, Double>>(hm.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
             @Override
-            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+            public int compare(final Map.Entry<String, Double> o1,
+                               final Map.Entry<String, Double> o2) {
                     return o2.getValue().compareTo(o1.getValue());
             }
         });
